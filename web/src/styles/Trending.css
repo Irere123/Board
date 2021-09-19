@@ -1,0 +1,51 @@
+.trendingPage__layout {
+  margin-top: 30px;
+  margin-left: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.latestTrends {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-right: 10px;
+}
+
+.latestTrendCard {
+  background-color: #f6f6f6;
+  width: 280px;
+  height: 200px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.facebookTrends {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-right: 10px;
+}
+
+.facebookTrendCard {
+  background-color: #f6f6f6;
+  width: 280px;
+  height: 200px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.tiktokTrends {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-right: 10px;
+}
+
+.tiktokTrendCard {
+  background-color: #f6f6f6;
+  width: 280px;
+  height: 200px;
+  border-radius: 5px;
+  padding: 10px;
+}

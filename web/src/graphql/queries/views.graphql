@@ -1,0 +1,3 @@
+query Views($trendId: String!) {
+  views(trendId: $trendId)
+}

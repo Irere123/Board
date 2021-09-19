@@ -1,0 +1,62 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, Geneva,
+    Verdana, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navbar__left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__left > h2 {
+  margin-left: 10px;
+  font-size: 30px;
+}
+
+.navbar__right {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1 1;
+  margin-right: 20px;
+}
+
+.navbar__right__link > h3 {
+  background-color: transparent;
+  color: #000;
+  margin-bottom: 0;
+}
+
+.navbar__right__link > h3:hover {
+  border-bottom: 2px solid #000;
+}
+
+.navbar__right__link_about {
+  margin-left: 30px;
+}
+
+.navbar__right__link_about > h3 {
+  color: #fff;
+  background-color: #000;
+  padding: 10px;
+  height: 20px;
+  transition: transform 300ms ease-out;
+}
+
+.navbar__right__link_about > h3:hover {
+  transform: scale(1.05);
+}

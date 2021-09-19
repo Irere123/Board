@@ -1,0 +1,49 @@
+query Trends {
+  trends {
+    id
+    source
+    sourceUrl
+    imageUrl
+    body
+    createdAt
+  }
+}
+
+query NewTrends {
+  newTrends {
+    id
+    source
+    sourceUrl
+    imageUrl
+    body
+    createdAt
+    createdAt
+    updatedAt
+  }
+}
+
+query FacebookTrends {
+  facebookTrends {
+    id
+    source
+    sourceUrl
+    imageUrl
+    body
+    createdAt
+    createdAt
+    updatedAt
+  }
+}
+
+query TikTokTrend {
+  tiktokTrends {
+    id
+    source
+    sourceUrl
+    imageUrl
+    body
+    createdAt
+    createdAt
+    updatedAt
+  }
+}

@@ -1,0 +1,8 @@
+query Suggestions {
+  suggestions {
+    id
+    body
+    tag
+    createdAt
+  }
+}

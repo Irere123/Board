@@ -1,0 +1,29 @@
+.messagesPage__layout {
+  margin-left: 10px;
+  margin-top: 50px;
+}
+
+.messagesPageTitle {
+  font-size: 25px;
+}
+
+.messagesPage__layout > button {
+  background-color: rgb(99, 187, 99);
+  color: #f6f6f6;
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 300ms ease-in;
+  box-shadow: 2px 2px lightblue;
+}
+
+.messagesPage__layout > button > h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.messagesPage__layout > button:hover {
+  transform: scale(1.08);
+}

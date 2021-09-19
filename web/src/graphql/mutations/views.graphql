@@ -1,0 +1,3 @@
+mutation createView($trendId: String!) {
+  createView(trendId: $trendId)
+}

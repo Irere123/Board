@@ -1,0 +1,76 @@
+.aboutpage__layout {
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+.aboutpage__layoutCreatorSection {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
+
+.aboutpage__layoutCreatorSection__intro {
+  max-width: 500px;
+}
+
+.aboutpage__layoutCreatorSection__intro > h1 {
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  max-width: 300px;
+  box-shadow: -4px 4px #4b4a4a;
+  font-size: 26px;
+}
+
+.aboutPage__logo {
+  color: #000;
+  text-align: center;
+}
+
+.aboutCreator__knowMore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: orange;
+  box-shadow: 4px 4px lightblue;
+  width: 140px;
+  height: 40px;
+}
+
+.aboutCreator__knowMore > .chevronIcon {
+  display: flex;
+  align-items: center;
+}
+
+.aboutpage__layoutCreatorSection_projects {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+.aboutPage__aboutProject {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 40px;
+}
+
+.aboutPage__aboutProjectText {
+  max-width: 600px;
+}
+
+.aboutPage__aboutProjectGithub {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.aboutPage__aboutProjectGithub > a {
+  color: #000;
+}
+
+.aboutPage__aboutProjectGithub > a > .MuiSvgIcon-root {
+  font-size: 60px;
+}

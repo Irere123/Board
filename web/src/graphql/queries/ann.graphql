@@ -1,0 +1,21 @@
+query Announcements {
+  announcements {
+    id
+    author
+    body
+    summary
+    createdAt
+    updatedAt
+  }
+}
+
+query Announcement($annId: String!) {
+  announcement(annId: $annId) {
+    id
+    author
+    body
+    summary
+    createdAt
+    updatedAt
+  }
+}
