@@ -18,20 +18,20 @@ import { TrendResolver } from "./resolvers/trend";
 const main = async () => {
   await createConnection({
     type: "postgres",
-    database: "board",
-    username: "postgres",
-    password: "postgres",
+    database: !__prod__ ? "board" : process.env.DB_NAME,
+    host: !__prod__ ? "localhost" : process.env.DB_HOST,
+    username: !__prod__ ? "postgres" : process.env.DB_USERNAME,
+    password: !__prod__ ? "postgres" : process.env.DB_PASSWORD,
     logging: !__prod__,
     synchronize: !__prod__,
     entities: [join(__dirname, "./entity/**/*.*")],
-    // dropSchema: true,
   });
 
   const app = express();
 
   app.use(
     cors({
-      origin: "*",
+      origin: ["http://localhost:3000", "https://api-board.herokuapp.com"],
       credentials: true,
     })
   );
@@ -54,9 +54,11 @@ const main = async () => {
   await apolloServer.start();
   apolloServer.applyMiddleware({ app });
 
-  app.listen(5050, () => {
+  app.listen(!__prod__ ? 5050 : parseInt(process.env.PORT!), () => {
     console.log(
-      `Server started on http://localhost:5050${apolloServer.graphqlPath}`
+      `Server started on ${
+        !__prod__ ? `http://localhost:5050` : `https://api-board.herokuapp.com`
+      }${apolloServer.graphqlPath}`
     );
   });
 };
