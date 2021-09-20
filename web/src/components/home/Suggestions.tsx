@@ -30,7 +30,6 @@ export const Suggestions: React.FC = () => {
       <div className="homepage__Tips_tipsList">
         {data?.newSuggestions.map((suggestion) => (
           <div key={suggestion.id} className="homepage__TipCard">
-            <div className="homepage__TipTag">{suggestion.tag}</div>
             <p>{suggestion.body.slice(0, 180)}</p>
           </div>
         ))}
