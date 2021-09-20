@@ -8,7 +8,16 @@ import { CreateSuggResponse } from "./createSuggResponse";
 export class Suggestionsolver {
   @Query(() => [Suggestion])
   async suggestions(): Promise<Suggestion[]> {
-    const suggestions = await Suggestion.find();
+    const suggestions = await Suggestion.find({ order: { createdAt: "DESC" } });
+    return suggestions;
+  }
+
+  @Query(() => [Suggestion])
+  async newSuggestions(): Promise<Suggestion[]> {
+    const suggestions = await Suggestion.find({
+      order: { createdAt: "DESC" },
+      take: 3,
+    });
     return suggestions;
   }
 
