@@ -25,8 +25,11 @@ const main = async () => {
     logging: !__prod__,
     synchronize: !__prod__,
     entities: [join(__dirname, "./entity/**/*.*")],
+    ssl: true,
     extra: {
-      ssl: true,
+      ssl: {
+        rejectUnauthorized: false,
+      },
     },
   });
 
@@ -52,12 +55,13 @@ const main = async () => {
     }),
     plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
     context: ({ req, res }: any) => ({ req, res }),
+    introspection: true,
   });
 
   await apolloServer.start();
   apolloServer.applyMiddleware({ app });
 
-  app.listen(!__prod__ ? 5050 : parseInt(process.env.PORT!), () => {
+  app.listen(!__prod__ ? 5050 : process.env.PORT!, () => {
     console.log(
       `Server started on ${
         !__prod__
