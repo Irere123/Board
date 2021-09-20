@@ -14,7 +14,7 @@ import Routes from "./Routes";
 dayjs.extend(RelativeTime);
 
 const httpLink = new HttpLink({
-  uri: "http://localhost:5050/graphql",
+  uri: process.env.API_URL,
 });
 
 const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
