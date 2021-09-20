@@ -31,7 +31,7 @@ const main = async () => {
 
   app.use(
     cors({
-      origin: ["http://localhost:3000", "https://api-board.herokuapp.com"],
+      origin: "*",
       credentials: true,
     })
   );
@@ -57,7 +57,9 @@ const main = async () => {
   app.listen(!__prod__ ? 5050 : parseInt(process.env.PORT!), () => {
     console.log(
       `Server started on ${
-        !__prod__ ? `http://localhost:5050` : `https://api-board.herokuapp.com`
+        !__prod__
+          ? `http://localhost:5050`
+          : `https://api-board-graphql.herokuapp.com`
       }${apolloServer.graphqlPath}`
     );
   });
