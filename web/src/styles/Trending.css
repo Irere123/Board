@@ -5,6 +5,39 @@
   gap: 10px;
 }
 
+.trendingPage__title {
+  display: flex;
+  align-items: center;
+  width: 150px;
+  height: 40px;
+  gap: 5px;
+  background-color: #000;
+  color: #fff;
+}
+
+.trendingPage__title > span {
+  display: flex;
+  align-items: center;
+}
+
+.newTrendButton {
+  background-color: rgb(99, 187, 99);
+  width: 100px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  color: #f6f6f6;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.trendingPage__title > span > .MuiSvgIcon-root {
+  font-size: 30px;
+  margin-left: 5px;
+}
+
 .latestTrends {
   display: flex;
   gap: 20px;
@@ -48,4 +81,32 @@
   height: 200px;
   border-radius: 5px;
   padding: 10px;
+}
+
+.createTrendModal {
+  background-color: #f6f6f6;
+  max-width: 500px;
+  height: 400px;
+  margin: auto;
+  border-radius: 4px;
+  margin-top: 40px;
+  padding: 10px;
+  border: 2px solid #000;
+}
+
+.createTrendModal__closeIcon {
+  background-color: rgba(0, 0, 0, 1);
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 300ms ease-in;
+}
+
+.createTrendModal__closeIcon:hover {
+  transform: scale(1.07);
 }

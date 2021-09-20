@@ -2,10 +2,7 @@ import { Close } from "@mui/icons-material";
 import { Button, TextField } from "@mui/material";
 import { Form, Formik } from "formik";
 import React from "react";
-import {
-  CreateSuggestionComponent,
-  SuggestionsQuery,
-} from "../../generated/graphql";
+import { CreateSuggestionComponent } from "../../generated/graphql";
 
 interface Props {
   onClose: () => void;
@@ -82,7 +79,9 @@ export const CreateTipModal: React.FC<Props> = ({ onClose }) => {
         </span>
       </div>
       <div className="createTipModal__content">
-        <h3 style={{ textAlign: "center" }}>Create a Tip</h3>
+        <h3 style={{ textAlign: "center", textTransform: "uppercase" }}>
+          Create a Tip
+        </h3>
         <div>
           <MyForm onClose={onClose} />
         </div>

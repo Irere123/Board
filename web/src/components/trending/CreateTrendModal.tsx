@@ -1,11 +1,19 @@
 import React from "react";
 
-interface Props {}
+import { Close } from "@mui/icons-material";
 
-export const CreateTrend: React.FC<Props> = () => {
+interface Props {
+  onClose: () => void;
+}
+
+export const CreateTrendModal: React.FC<Props> = ({ onClose }) => {
   return (
-    <div>
-      <h3>create Trend</h3>
+    <div className="createTrendModal">
+      <div className="createTrendModal__closeIcon" onClick={onClose}>
+        <span>
+          <Close />
+        </span>
+      </div>
     </div>
   );
 };

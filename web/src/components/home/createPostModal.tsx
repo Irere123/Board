@@ -18,9 +18,6 @@ interface FormValues {
 const MyForm: React.FC<Props> = ({ onClose }) => {
   return (
     <>
-      <div className="createPostModal__title">
-        <h3>Create Your Post</h3>
-      </div>
       <CreatePostComponent>
         {(mutate) => (
           <Formik<FormValues>
@@ -90,6 +87,9 @@ export const CreatePostModal: React.FC<Props> = ({ onClose }) => {
           <Close />
         </span>
       </div>
+
+      <h3 className="createPostModal__title">Create Your Post</h3>
+
       <div>
         <MyForm onClose={onClose} />
       </div>
