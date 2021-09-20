@@ -1,9 +1,6 @@
 import "reflect-metadata";
 import "dotenv-safe/config";
-import {
-  ApolloServerPluginLandingPageDisabled,
-  ApolloServerPluginLandingPageGraphQLPlayground,
-} from "apollo-server-core";
+import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 import express from "express";
 import { createConnection } from "typeorm";
 import { join } from "path";
@@ -21,10 +18,9 @@ import { TrendResolver } from "./resolvers/trend";
 const main = async () => {
   await createConnection({
     type: "postgres",
-    database: process.env.DB_NAME,
-    host: process.env.DB_HOST,
-    username: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
+    database: "board",
+    username: "postgres",
+    password: "postgres",
     logging: !__prod__,
     synchronize: !__prod__,
     entities: [join(__dirname, "./entity/**/*.*")],
@@ -51,11 +47,7 @@ const main = async () => {
       ],
       validate: false,
     }),
-    plugins: [
-      __prod__
-        ? ApolloServerPluginLandingPageDisabled()
-        : ApolloServerPluginLandingPageGraphQLPlayground(),
-    ],
+    plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
     context: ({ req, res }: any) => ({ req, res }),
   });
 
