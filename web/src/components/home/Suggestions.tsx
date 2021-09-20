@@ -1,13 +1,22 @@
 import { EmojiObjects } from "@mui/icons-material";
 import React from "react";
 
-import { useSuggestionsQuery } from "../../generated/graphql";
+import { useNewSuggestionsQuery } from "../../generated/graphql";
 
 export const Suggestions: React.FC = () => {
-  const { data, loading } = useSuggestionsQuery();
+  const { data, loading, error } = useNewSuggestionsQuery();
 
   if (loading) {
     return <h1>loading....</h1>;
+  }
+
+  if (error) {
+    return (
+      <div>
+        <div>There is something wrong. Server Error 500</div>
+        <div>{error.message}</div>
+      </div>
+    );
   }
 
   return (
@@ -19,10 +28,10 @@ export const Suggestions: React.FC = () => {
         Tips
       </h2>
       <div className="homepage__Tips_tipsList">
-        {data?.suggestions.map((suggestion) => (
+        {data?.newSuggestions.map((suggestion) => (
           <div key={suggestion.id} className="homepage__TipCard">
             <div className="homepage__TipTag">{suggestion.tag}</div>
-            <p>{suggestion.body}</p>
+            <p>{suggestion.body.slice(0, 180)}</p>
           </div>
         ))}
       </div>

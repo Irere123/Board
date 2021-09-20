@@ -1,6 +1,6 @@
 import React from "react";
 import { Close } from "@mui/icons-material";
-import { Formik } from "formik";
+import { Form, Formik } from "formik";
 import { Button, TextField } from "@mui/material";
 
 import { CreatePostComponent } from "../../generated/graphql";
@@ -28,6 +28,9 @@ const MyForm: React.FC<Props> = ({ onClose }) => {
             onSubmit={async (values, { resetForm }) => {
               const response = await mutate({
                 variables: { input: values },
+                update: (store) => {
+                  store.evict({ fieldName: "posts" });
+                },
               });
 
               if (response.data?.createPost.ok) {
@@ -37,11 +40,8 @@ const MyForm: React.FC<Props> = ({ onClose }) => {
             }}
           >
             {({ handleChange, handleSubmit, isSubmitting, values }) => (
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  handleSubmit();
-                }}
+              <Form
+                onSubmit={handleSubmit}
                 style={{
                   display: "flex",
                   flexDirection: "column",
@@ -73,7 +73,7 @@ const MyForm: React.FC<Props> = ({ onClose }) => {
                 <Button type="submit" disabled={isSubmitting}>
                   create post
                 </Button>
-              </form>
+              </Form>
             )}
           </Formik>
         )}

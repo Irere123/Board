@@ -123,6 +123,7 @@ export type Query = {
   announcements: Array<Announcement>;
   facebookTrends: Array<Trend>;
   hello: Scalars['String'];
+  newSuggestions: Array<Suggestion>;
   newTrends: Array<Trend>;
   post: Post;
   posts: Array<Post>;
@@ -174,6 +175,13 @@ export type CreatePostMutationVariables = Exact<{
 
 export type CreatePostMutation = { __typename?: 'Mutation', createPost: { __typename?: 'CreatePostResponse', ok: boolean, post: { __typename?: 'Post', id: string, author?: Maybe<string>, title: string, body: string, createdAt: any, updatedAt: any } } };
 
+export type CreateSuggestionMutationVariables = Exact<{
+  input: CreateSuggInput;
+}>;
+
+
+export type CreateSuggestionMutation = { __typename?: 'Mutation', createSuggugestion: { __typename?: 'CreateSuggResponse', ok: boolean, suggestion: { __typename?: 'Suggestion', id: string, body: string, tag: string } } };
+
 export type CreateViewMutationVariables = Exact<{
   trendId: Scalars['String'];
 }>;
@@ -209,6 +217,11 @@ export type SuggestionsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type SuggestionsQuery = { __typename?: 'Query', suggestions: Array<{ __typename?: 'Suggestion', id: string, body: string, tag: string, createdAt: any }> };
+
+export type NewSuggestionsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type NewSuggestionsQuery = { __typename?: 'Query', newSuggestions: Array<{ __typename?: 'Suggestion', id: string, body: string, tag: string, createdAt: any }> };
 
 export type TrendsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -285,6 +298,50 @@ export function useCreatePostMutation(baseOptions?: Apollo.MutationHookOptions<C
 export type CreatePostMutationHookResult = ReturnType<typeof useCreatePostMutation>;
 export type CreatePostMutationResult = Apollo.MutationResult<CreatePostMutation>;
 export type CreatePostMutationOptions = Apollo.BaseMutationOptions<CreatePostMutation, CreatePostMutationVariables>;
+export const CreateSuggestionDocument = gql`
+    mutation CreateSuggestion($input: CreateSuggInput!) {
+  createSuggugestion(input: $input) {
+    ok
+    suggestion {
+      id
+      body
+      tag
+    }
+  }
+}
+    `;
+export type CreateSuggestionMutationFn = Apollo.MutationFunction<CreateSuggestionMutation, CreateSuggestionMutationVariables>;
+export type CreateSuggestionComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<CreateSuggestionMutation, CreateSuggestionMutationVariables>, 'mutation'>;
+
+    export const CreateSuggestionComponent = (props: CreateSuggestionComponentProps) => (
+      <ApolloReactComponents.Mutation<CreateSuggestionMutation, CreateSuggestionMutationVariables> mutation={CreateSuggestionDocument} {...props} />
+    );
+    
+
+/**
+ * __useCreateSuggestionMutation__
+ *
+ * To run a mutation, you first call `useCreateSuggestionMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateSuggestionMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createSuggestionMutation, { data, loading, error }] = useCreateSuggestionMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useCreateSuggestionMutation(baseOptions?: Apollo.MutationHookOptions<CreateSuggestionMutation, CreateSuggestionMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreateSuggestionMutation, CreateSuggestionMutationVariables>(CreateSuggestionDocument, options);
+      }
+export type CreateSuggestionMutationHookResult = ReturnType<typeof useCreateSuggestionMutation>;
+export type CreateSuggestionMutationResult = Apollo.MutationResult<CreateSuggestionMutation>;
+export type CreateSuggestionMutationOptions = Apollo.BaseMutationOptions<CreateSuggestionMutation, CreateSuggestionMutationVariables>;
 export const CreateViewDocument = gql`
     mutation createView($trendId: String!) {
   createView(trendId: $trendId)
@@ -547,6 +604,49 @@ export function useSuggestionsLazyQuery(baseOptions?: Apollo.LazyQueryHookOption
 export type SuggestionsQueryHookResult = ReturnType<typeof useSuggestionsQuery>;
 export type SuggestionsLazyQueryHookResult = ReturnType<typeof useSuggestionsLazyQuery>;
 export type SuggestionsQueryResult = Apollo.QueryResult<SuggestionsQuery, SuggestionsQueryVariables>;
+export const NewSuggestionsDocument = gql`
+    query newSuggestions {
+  newSuggestions {
+    id
+    body
+    tag
+    createdAt
+  }
+}
+    `;
+export type NewSuggestionsComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<NewSuggestionsQuery, NewSuggestionsQueryVariables>, 'query'>;
+
+    export const NewSuggestionsComponent = (props: NewSuggestionsComponentProps) => (
+      <ApolloReactComponents.Query<NewSuggestionsQuery, NewSuggestionsQueryVariables> query={NewSuggestionsDocument} {...props} />
+    );
+    
+
+/**
+ * __useNewSuggestionsQuery__
+ *
+ * To run a query within a React component, call `useNewSuggestionsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useNewSuggestionsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useNewSuggestionsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useNewSuggestionsQuery(baseOptions?: Apollo.QueryHookOptions<NewSuggestionsQuery, NewSuggestionsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<NewSuggestionsQuery, NewSuggestionsQueryVariables>(NewSuggestionsDocument, options);
+      }
+export function useNewSuggestionsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<NewSuggestionsQuery, NewSuggestionsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<NewSuggestionsQuery, NewSuggestionsQueryVariables>(NewSuggestionsDocument, options);
+        }
+export type NewSuggestionsQueryHookResult = ReturnType<typeof useNewSuggestionsQuery>;
+export type NewSuggestionsLazyQueryHookResult = ReturnType<typeof useNewSuggestionsLazyQuery>;
+export type NewSuggestionsQueryResult = Apollo.QueryResult<NewSuggestionsQuery, NewSuggestionsQueryVariables>;
 export const TrendsDocument = gql`
     query Trends {
   trends {

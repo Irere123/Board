@@ -6,3 +6,12 @@ query Suggestions {
     createdAt
   }
 }
+
+query newSuggestions {
+  newSuggestions {
+    id
+    body
+    tag
+    createdAt
+  }
+}

@@ -1,0 +1,10 @@
+mutation CreateSuggestion($input: CreateSuggInput!) {
+  createSuggugestion(input: $input) {
+    ok
+    suggestion {
+      id
+      body
+      tag
+    }
+  }
+}

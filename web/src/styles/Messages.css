@@ -1,29 +1,21 @@
 .messagesPage__layout {
   margin-left: 10px;
   margin-top: 50px;
+  display: grid;
+  grid-template-areas:
+    "big_ann small_ann"
+    "big_ann small_ann"
+    "other_ann other_ann";
 }
 
-.messagesPageTitle {
-  font-size: 25px;
+.big_announcement {
+  grid-area: big_ann;
 }
 
-.messagesPage__layout > button {
-  background-color: rgb(99, 187, 99);
-  color: #f6f6f6;
-  border: none;
-  outline: none;
-  padding: 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: transform 300ms ease-in;
-  box-shadow: 2px 2px lightblue;
+.small_announcement {
+  grid-area: small_ann;
 }
 
-.messagesPage__layout > button > h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.messagesPage__layout > button:hover {
-  transform: scale(1.08);
+.other_announcements {
+  grid-area: other_ann;
 }
