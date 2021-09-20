@@ -22,7 +22,7 @@ const main = async () => {
     host: !__prod__ ? "localhost" : process.env.DB_HOST,
     username: !__prod__ ? "postgres" : process.env.DB_USERNAME,
     password: !__prod__ ? "postgres" : process.env.DB_PASSWORD,
-    logging: true,
+    logging: !__prod__,
     synchronize: true,
     entities: [join(__dirname, "./entity/**/*.*")],
     ssl: true,
