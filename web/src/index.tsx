@@ -13,8 +13,12 @@ import Routes from "./Routes";
 
 dayjs.extend(RelativeTime);
 
+const __prod__ = process.env.NODE_ENV === "production";
+
 const httpLink = new HttpLink({
-  uri: process.env.API_URL,
+  uri: !__prod__
+    ? "http://localhost:5050/graphql"
+    : "https://api-board-graphql.herokuapp.com/graphql",
 });
 
 const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
