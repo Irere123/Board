@@ -7,10 +7,10 @@
 
 ## Structure
 
-| Codebase         | Description |                       Website                        |
-| :--------------- | :---------: | :--------------------------------------------------: |
-| [web](web)       |  Main Site  |          [Board](https://board.vercel.app)           |
-| [server](server) | GraphQL API | [Board API](https://api-board.herokuapp.com/graphql) |
+| Codebase         | Description |                           Website                            |
+| :--------------- | :---------: | :----------------------------------------------------------: |
+| [web](web)       |  Main Site  |            [Board](https://board-dev.vercel.app)             |
+| [server](server) | GraphQL API | [Board API](https://api-board-graphql.herokuapp.com/graphql) |
 
 ## Branches
 
