@@ -2,6 +2,7 @@ import { Avatar } from "@mui/material";
 import React from "react";
 
 import { useNewTrendsQuery } from "../../generated/graphql";
+import { ViewCount } from "../ViewCount";
 
 export const LatestTrends: React.FC = () => {
   const { data } = useNewTrendsQuery();
@@ -19,6 +20,7 @@ export const LatestTrends: React.FC = () => {
           </div>
           <div>
             <p>{trend.body.slice(0, 100)}</p>
+            <ViewCount trendId={trend.id} />
           </div>
         </div>
       ))}

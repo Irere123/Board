@@ -1,7 +1,7 @@
 import { Avatar } from "@mui/material";
 import React from "react";
 
-import { ViewCount } from "./ViewCount";
+import { ViewCount } from "../ViewCount";
 import { useNewTrendsQuery } from "../../generated/graphql";
 
 export const Trending: React.FC = () => {
