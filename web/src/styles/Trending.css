@@ -53,33 +53,19 @@
   padding: 10px;
 }
 
-.facebookTrends {
+.allTrends {
   display: flex;
-  gap: 20px;
+  flex-direction: row;
   flex-wrap: wrap;
-  padding-right: 10px;
-}
-
-.facebookTrendCard {
-  background-color: #f6f6f6;
-  width: 280px;
-  height: 200px;
-  border-radius: 5px;
-  padding: 10px;
-}
-
-.tiktokTrends {
-  display: flex;
   gap: 20px;
-  flex-wrap: wrap;
-  padding-right: 10px;
+  margin-top: 50px;
 }
 
-.tiktokTrendCard {
+.allTrends__trendcard {
+  display: inline-block;
   background-color: #f6f6f6;
-  width: 280px;
+  width: 300px;
   height: 200px;
-  border-radius: 5px;
   padding: 10px;
 }
 

@@ -5,6 +5,7 @@ import { TrendingUp } from "@mui/icons-material";
 import "../styles/Trending.css";
 import { LatestTrends } from "../components/trending/LastestTrends";
 import { CreateTrendModal } from "../components/trending/CreateTrendModal";
+import AllTrends from "../components/trending/AllTrends";
 
 export const Trending: React.FC = () => {
   const [openCreateTrendModal, setOpenCreateTrendModal] = useState(false);
@@ -34,8 +35,11 @@ export const Trending: React.FC = () => {
             <LatestTrends />
           </div>
         </div>
+        <div className="allTrends">
+          <AllTrends />
+        </div>
       </div>
-
+      <div></div>
       {openCreateTrendModal && (
         <Modal open={openCreateTrendModal} onClose={handleClose}>
           <CreateTrendModal onClose={handleClose} />
