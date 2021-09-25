@@ -1,17 +1,33 @@
 import { Avatar } from "@mui/material";
 import React from "react";
 
-import { useNewTrendsQuery } from "../../generated/graphql";
+import {
+  useCreateViewMutation,
+  useNewTrendsQuery,
+} from "../../generated/graphql";
 import { ViewCount } from "../ViewCount";
 
 export const LatestTrends: React.FC = () => {
   const { data } = useNewTrendsQuery();
+  const [addView] = useCreateViewMutation();
   return (
     <>
       {data?.newTrends.map((trend) => (
         <div className="latestTrendCard" key={trend.id}>
           <div>
-            <a href={`${trend.sourceUrl}`} target="_blank" rel="noreferrer">
+            <a
+              href={`${trend.sourceUrl}`}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => {
+                addView({
+                  variables: { trendId: trend.id },
+                  update: (store) => {
+                    store.evict({ fieldName: "views" });
+                  },
+                });
+              }}
+            >
               <Avatar>
                 {trend.source?.charAt(0).toUpperCase()}
                 {trend.source?.charAt(1).toUpperCase()}
