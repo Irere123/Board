@@ -1,0 +1,21 @@
+mutation createTrend(
+  $body: String!
+  $imageUrl: String!
+  $sourceUrl: String!
+  $source: String!
+) {
+  createTrend(
+    body: $body
+    imageUrl: $imageUrl
+    sourceUrl: $sourceUrl
+    source: $source
+  ) {
+    id
+    source
+    sourceUrl
+    imageUrl
+    body
+    createdAt
+    updatedAt
+  }
+}

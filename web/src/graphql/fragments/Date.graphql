@@ -1,0 +1,4 @@
+fragment on User {
+    createdAt
+    updatedAt
+}

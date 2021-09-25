@@ -182,6 +182,16 @@ export type CreateSuggestionMutationVariables = Exact<{
 
 export type CreateSuggestionMutation = { __typename?: 'Mutation', createSuggugestion: { __typename?: 'CreateSuggResponse', ok: boolean, suggestion: { __typename?: 'Suggestion', id: string, body: string, tag: string } } };
 
+export type CreateTrendMutationVariables = Exact<{
+  body: Scalars['String'];
+  imageUrl: Scalars['String'];
+  sourceUrl: Scalars['String'];
+  source: Scalars['String'];
+}>;
+
+
+export type CreateTrendMutation = { __typename?: 'Mutation', createTrend: { __typename?: 'Trend', id: string, source?: Maybe<string>, sourceUrl?: Maybe<string>, imageUrl?: Maybe<string>, body: string, createdAt: any, updatedAt: any } };
+
 export type CreateViewMutationVariables = Exact<{
   trendId: Scalars['String'];
 }>;
@@ -342,6 +352,59 @@ export function useCreateSuggestionMutation(baseOptions?: Apollo.MutationHookOpt
 export type CreateSuggestionMutationHookResult = ReturnType<typeof useCreateSuggestionMutation>;
 export type CreateSuggestionMutationResult = Apollo.MutationResult<CreateSuggestionMutation>;
 export type CreateSuggestionMutationOptions = Apollo.BaseMutationOptions<CreateSuggestionMutation, CreateSuggestionMutationVariables>;
+export const CreateTrendDocument = gql`
+    mutation createTrend($body: String!, $imageUrl: String!, $sourceUrl: String!, $source: String!) {
+  createTrend(
+    body: $body
+    imageUrl: $imageUrl
+    sourceUrl: $sourceUrl
+    source: $source
+  ) {
+    id
+    source
+    sourceUrl
+    imageUrl
+    body
+    createdAt
+    updatedAt
+  }
+}
+    `;
+export type CreateTrendMutationFn = Apollo.MutationFunction<CreateTrendMutation, CreateTrendMutationVariables>;
+export type CreateTrendComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<CreateTrendMutation, CreateTrendMutationVariables>, 'mutation'>;
+
+    export const CreateTrendComponent = (props: CreateTrendComponentProps) => (
+      <ApolloReactComponents.Mutation<CreateTrendMutation, CreateTrendMutationVariables> mutation={CreateTrendDocument} {...props} />
+    );
+    
+
+/**
+ * __useCreateTrendMutation__
+ *
+ * To run a mutation, you first call `useCreateTrendMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateTrendMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createTrendMutation, { data, loading, error }] = useCreateTrendMutation({
+ *   variables: {
+ *      body: // value for 'body'
+ *      imageUrl: // value for 'imageUrl'
+ *      sourceUrl: // value for 'sourceUrl'
+ *      source: // value for 'source'
+ *   },
+ * });
+ */
+export function useCreateTrendMutation(baseOptions?: Apollo.MutationHookOptions<CreateTrendMutation, CreateTrendMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreateTrendMutation, CreateTrendMutationVariables>(CreateTrendDocument, options);
+      }
+export type CreateTrendMutationHookResult = ReturnType<typeof useCreateTrendMutation>;
+export type CreateTrendMutationResult = Apollo.MutationResult<CreateTrendMutation>;
+export type CreateTrendMutationOptions = Apollo.BaseMutationOptions<CreateTrendMutation, CreateTrendMutationVariables>;
 export const CreateViewDocument = gql`
     mutation createView($trendId: String!) {
   createView(trendId: $trendId)
