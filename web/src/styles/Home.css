@@ -39,9 +39,23 @@
 }
 
 .homepage__postCard {
-  background-color: #f6f6f6;
-  padding: 10px;
+  background-color: #fff;
+  padding: 10px 20px;
   max-width: 690px;
+  color: #000;
+  border-radius: 10px;
+  box-shadow: rgb(145 158 171 / 24%) 0px 0px 2px 0px,
+    rgb(145 158 171 / 24%) 0px 16px 32px -4px;
+}
+
+.postCard__avatar {
+  background-color: transparent !important;
+  color: #005249 !important;
+  border: 2px solid rgba(255, 247, 205, 1) !important;
+}
+
+.homepage__postCard:last-child {
+  margin-bottom: 20px;
 }
 
 .homepage__Leftlayout_posts > div > h4 {
@@ -64,13 +78,20 @@
 .homepage__trendCard {
   width: 200px;
   height: 180px;
-  background-color: #f6f6f6;
+  background-color: rgb(200, 250, 205);
   padding: 14px;
   border-radius: 6px;
   display: grid;
   grid-template-rows: 40px 1fr 60px;
   transition: transform 500ms ease-in-out;
   cursor: pointer;
+  color: #005249;
+}
+
+.trendCardAvatar {
+  background-color: transparent !important;
+  border: 3px solid #005249;
+  color: #005249 !important;
 }
 
 .homepage__trendCard:hover {
@@ -119,10 +140,11 @@
 
 .homepage__TipsTitle {
   display: flex;
-  background-color: yellow;
+  background-color: rgb(255, 247, 205);
   max-width: 400px;
   padding: 10px 4px;
   border-radius: 4px;
+  color: rgb(122, 79, 1);
 }
 
 .homepage__TipsTitle > span {
@@ -140,14 +162,17 @@
 }
 
 .homepage__TipCard {
-  background-color: #f6f6f6;
+  background-color: #fff;
   max-width: 390px;
   padding: 10px;
   border-radius: 4px;
-  border: 1px solid #000;
+  border: 1px solid rgb(4, 41, 122);
   text-transform: inherit;
+  box-shadow: rgb(145 158 171 / 24%) 0px 0px 2px 0px,
+    rgb(145 158 171 / 24%) 0px 16px 32px -4px;
   display: flex;
   gap: 10px;
+  color: rgb(4, 41, 122);
 }
 
 .homepage__TipTag {

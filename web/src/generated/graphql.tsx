@@ -243,16 +243,6 @@ export type NewTrendsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type NewTrendsQuery = { __typename?: 'Query', newTrends: Array<{ __typename?: 'Trend', id: string, source?: Maybe<string>, sourceUrl?: Maybe<string>, imageUrl?: Maybe<string>, body: string, createdAt: any, updatedAt: any }> };
 
-export type FacebookTrendsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type FacebookTrendsQuery = { __typename?: 'Query', facebookTrends: Array<{ __typename?: 'Trend', id: string, source?: Maybe<string>, sourceUrl?: Maybe<string>, imageUrl?: Maybe<string>, body: string, createdAt: any, updatedAt: any }> };
-
-export type TikTokTrendQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type TikTokTrendQuery = { __typename?: 'Query', tiktokTrends: Array<{ __typename?: 'Trend', id: string, source?: Maybe<string>, sourceUrl?: Maybe<string>, imageUrl?: Maybe<string>, body: string, createdAt: any, updatedAt: any }> };
-
 export type ViewsQueryVariables = Exact<{
   trendId: Scalars['String'];
 }>;
@@ -802,100 +792,6 @@ export function useNewTrendsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<
 export type NewTrendsQueryHookResult = ReturnType<typeof useNewTrendsQuery>;
 export type NewTrendsLazyQueryHookResult = ReturnType<typeof useNewTrendsLazyQuery>;
 export type NewTrendsQueryResult = Apollo.QueryResult<NewTrendsQuery, NewTrendsQueryVariables>;
-export const FacebookTrendsDocument = gql`
-    query FacebookTrends {
-  facebookTrends {
-    id
-    source
-    sourceUrl
-    imageUrl
-    body
-    createdAt
-    createdAt
-    updatedAt
-  }
-}
-    `;
-export type FacebookTrendsComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<FacebookTrendsQuery, FacebookTrendsQueryVariables>, 'query'>;
-
-    export const FacebookTrendsComponent = (props: FacebookTrendsComponentProps) => (
-      <ApolloReactComponents.Query<FacebookTrendsQuery, FacebookTrendsQueryVariables> query={FacebookTrendsDocument} {...props} />
-    );
-    
-
-/**
- * __useFacebookTrendsQuery__
- *
- * To run a query within a React component, call `useFacebookTrendsQuery` and pass it any options that fit your needs.
- * When your component renders, `useFacebookTrendsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useFacebookTrendsQuery({
- *   variables: {
- *   },
- * });
- */
-export function useFacebookTrendsQuery(baseOptions?: Apollo.QueryHookOptions<FacebookTrendsQuery, FacebookTrendsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<FacebookTrendsQuery, FacebookTrendsQueryVariables>(FacebookTrendsDocument, options);
-      }
-export function useFacebookTrendsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<FacebookTrendsQuery, FacebookTrendsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<FacebookTrendsQuery, FacebookTrendsQueryVariables>(FacebookTrendsDocument, options);
-        }
-export type FacebookTrendsQueryHookResult = ReturnType<typeof useFacebookTrendsQuery>;
-export type FacebookTrendsLazyQueryHookResult = ReturnType<typeof useFacebookTrendsLazyQuery>;
-export type FacebookTrendsQueryResult = Apollo.QueryResult<FacebookTrendsQuery, FacebookTrendsQueryVariables>;
-export const TikTokTrendDocument = gql`
-    query TikTokTrend {
-  tiktokTrends {
-    id
-    source
-    sourceUrl
-    imageUrl
-    body
-    createdAt
-    createdAt
-    updatedAt
-  }
-}
-    `;
-export type TikTokTrendComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<TikTokTrendQuery, TikTokTrendQueryVariables>, 'query'>;
-
-    export const TikTokTrendComponent = (props: TikTokTrendComponentProps) => (
-      <ApolloReactComponents.Query<TikTokTrendQuery, TikTokTrendQueryVariables> query={TikTokTrendDocument} {...props} />
-    );
-    
-
-/**
- * __useTikTokTrendQuery__
- *
- * To run a query within a React component, call `useTikTokTrendQuery` and pass it any options that fit your needs.
- * When your component renders, `useTikTokTrendQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useTikTokTrendQuery({
- *   variables: {
- *   },
- * });
- */
-export function useTikTokTrendQuery(baseOptions?: Apollo.QueryHookOptions<TikTokTrendQuery, TikTokTrendQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<TikTokTrendQuery, TikTokTrendQueryVariables>(TikTokTrendDocument, options);
-      }
-export function useTikTokTrendLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TikTokTrendQuery, TikTokTrendQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<TikTokTrendQuery, TikTokTrendQueryVariables>(TikTokTrendDocument, options);
-        }
-export type TikTokTrendQueryHookResult = ReturnType<typeof useTikTokTrendQuery>;
-export type TikTokTrendLazyQueryHookResult = ReturnType<typeof useTikTokTrendLazyQuery>;
-export type TikTokTrendQueryResult = Apollo.QueryResult<TikTokTrendQuery, TikTokTrendQueryVariables>;
 export const ViewsDocument = gql`
     query Views($trendId: String!) {
   views(trendId: $trendId)

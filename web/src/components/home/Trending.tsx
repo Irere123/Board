@@ -16,7 +16,7 @@ export const Trending: React.FC = () => {
       {data?.newTrends.map((trend) => (
         <div key={trend.id}>
           <div className="homepage__trendCard">
-            <Avatar>
+            <Avatar className="trendCardAvatar">
               {trend.source?.charAt(0).toUpperCase()}
               {trend.source?.charAt(1).toUpperCase()}
             </Avatar>

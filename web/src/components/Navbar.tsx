@@ -1,12 +1,15 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
+import logo from "../logo.png";
 
 export const Navbar: React.FC = () => {
   return (
     <div className="navbar">
       <div className="navbar__left">
-        <h2>BOARD</h2>
+        <h2>
+          <img src={logo} alt="Board Logo" height="45px" />
+        </h2>
       </div>
       <div className="navbar__right">
         <Link to="/" className="navbar__right__link">
